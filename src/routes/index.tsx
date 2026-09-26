@@ -39,37 +39,73 @@ export const Route = createFileRoute("/")({
 const menu = [
   {
     name: "Country Sourdough",
-    price: "$9",
+    tag: "Breads",
     description: "48-hour ferment, blistered crust, open crumb. Baked at 5am.",
     image: sourdough,
   },
   {
+    name: "Sourdough Baguette",
+    tag: "Breads",
+    description: "Crackling shell, tender interior. Shaped by hand every morning.",
+    image: baguette,
+  },
+  {
+    name: "Dark Rye Loaf",
+    tag: "Breads",
+    description: "Deep, malty crumb under a cracked rye crust. A favorite with soup.",
+    image: ryeLoaf,
+  },
+  {
+    name: "Rosemary Focaccia",
+    tag: "Breads",
+    description: "Olive-oil dimpled, torn rosemary, flaky sea salt. Sold by the slice.",
+    image: focaccia,
+  },
+  {
     name: "Butter Croissant",
-    price: "$5",
+    tag: "Pastries",
     description: "Twenty-seven layers of cultured butter, shattering and soft.",
     image: croissant,
   },
   {
     name: "Almond Croissant",
-    price: "$6",
+    tag: "Pastries",
     description: "Filled with frangipane, crowned with toasted almonds and sugar.",
     image: almondCroissant,
   },
   {
+    name: "Chocolate Eclair",
+    tag: "Pastries",
+    description: "Choux piped with chocolate crème, finished with a dark ganache.",
+    image: chocolateEclair,
+  },
+  {
+    name: "Apple Danish",
+    tag: "Pastries",
+    description: "Flaky squares layered with spiced apples, baked until lacquered.",
+    image: appleDanish,
+  },
+  {
     name: "Cinnamon Roll",
-    price: "$6",
+    tag: "Sweet",
     description: "Soft brioche, cinnamon sugar, a thin cream-cheese glaze.",
     image: cinnamonRoll,
   },
   {
     name: "Cardamom Bun",
-    price: "$5",
+    tag: "Sweet",
     description: "Knotted by hand with ground cardamom and pearl sugar.",
     image: cardamomBun,
   },
   {
+    name: "Blueberry Muffin",
+    tag: "Sweet",
+    description: "Dome-topped with a sugared crust, bursting with berries.",
+    image: blueberryMuffin,
+  },
+  {
     name: "Lemon Drizzle Cake",
-    price: "$6",
+    tag: "Sweet",
     description: "Bright citrus glaze, tender crumb, best with a coffee.",
     image: lemonCake,
   },
@@ -196,10 +232,10 @@ function Index() {
                   />
                 </div>
                 <div className="p-3">
-                  <div className="flex items-baseline justify-between gap-3">
-                    <h3 className="font-display text-2xl font-medium">{item.name}</h3>
-                    <span className="font-display text-xl text-primary">{item.price}</span>
-                  </div>
+                  <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-primary">
+                    {item.tag}
+                  </p>
+                  <h3 className="mt-1 font-display text-2xl font-medium">{item.name}</h3>
                   <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
                     {item.description}
                   </p>
