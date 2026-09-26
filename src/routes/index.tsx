@@ -13,6 +13,7 @@ import appleDanish from "../assets/apple-danish.jpg";
 import chocolateEclair from "../assets/chocolate-eclair.jpg";
 import blueberryMuffin from "../assets/blueberry-muffin.jpg";
 import focaccia from "../assets/focaccia.jpg";
+import dailyCrumbLogo from "../assets/daily-crumb-badge.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -187,7 +188,14 @@ function Index() {
         />
         <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-6 pt-14 pb-20 lg:grid-cols-2 lg:pt-20">
         <div>
-          <p className="animate-fade-up text-xs font-bold uppercase tracking-[0.3em] text-primary">
+          <img
+            src={dailyCrumbLogo.url}
+            alt="The Daily Crumb Bakery logo"
+            width={1064}
+            height={581}
+            className="animate-fade-up w-72 rounded-2xl bg-card/80 object-contain p-2 shadow-md ring-1 ring-border md:w-96"
+          />
+          <p className="animate-fade-up mt-6 text-xs font-bold uppercase tracking-[0.3em] text-primary">
             Neighborhood bakery · Est. 2014
           </p>
           <h1 className="animate-fade-up mt-5 font-display text-5xl font-medium leading-[1.02] tracking-tight text-balance md:text-7xl [animation-delay:120ms]">
