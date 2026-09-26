@@ -151,8 +151,41 @@ function Index() {
         </div>
       </header>
 
+      {/* Marquee ribbon */}
+      <div className="overflow-hidden border-b border-primary/30 bg-primary py-2.5">
+        <div className="animate-marquee flex w-max">
+          {[0, 1].map((dup) => (
+            <div key={dup} aria-hidden={dup === 1} className="flex items-center">
+              {[
+                "Fresh from the oven every morning",
+                "No preservatives, ever",
+                "Made by hand, daily",
+                "Stone deck oven since 2014",
+              ].map((text) => (
+                <span
+                  key={`${dup}-${text}`}
+                  className="flex items-center gap-8 pr-8 text-xs font-bold uppercase tracking-[0.25em] whitespace-nowrap text-primary-foreground"
+                >
+                  {text}
+                  <span className="text-primary-foreground/60">✦</span>
+                </span>
+              ))}
+            </div>
+          ))}
+        </div>
+      </div>
+
       {/* Hero */}
-      <section className="mx-auto grid max-w-6xl items-center gap-12 px-6 pt-14 pb-20 lg:grid-cols-2 lg:pt-20">
+      <section className="relative overflow-hidden">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -top-40 -right-40 size-[30rem] rounded-full bg-accent/50 blur-3xl"
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -bottom-32 -left-24 size-96 rounded-full bg-secondary/80 blur-3xl"
+        />
+        <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-6 pt-14 pb-20 lg:grid-cols-2 lg:pt-20">
         <div>
           <p className="animate-fade-up text-xs font-bold uppercase tracking-[0.3em] text-primary">
             Neighborhood bakery · Est. 2014
@@ -180,6 +213,12 @@ function Index() {
               See the menu
             </a>
           </div>
+          <p className="animate-fade-up mt-7 flex items-center gap-2 text-sm text-muted-foreground [animation-delay:480ms]">
+            <span className="text-primary" aria-hidden>
+              ✦ ✦ ✦ ✦ ✦
+            </span>
+            Loved by the neighborhood since 2014
+          </p>
         </div>
         <div className="animate-fade-up relative [animation-delay:240ms]">
           <img
@@ -188,6 +227,14 @@ function Index() {
             width={1024}
             height={1280}
             className="w-full rounded-3xl object-cover shadow-xl ring-1 ring-border"
+          />
+          <img
+            src={croissant}
+            alt="Golden butter croissants stacked on a bakery tray"
+            loading="lazy"
+            width={512}
+            height={384}
+            className="absolute -top-8 -right-6 hidden w-44 rotate-6 rounded-2xl object-cover shadow-2xl ring-4 ring-background lg:block"
           />
           <div className="absolute -bottom-5 -left-4 rounded-2xl bg-card px-5 py-4 shadow-lg ring-1 ring-border md:-left-6">
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground">
