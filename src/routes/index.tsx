@@ -243,6 +243,7 @@ function Index() {
             <p className="mt-1 font-display text-xl font-medium">6:00 am sharp</p>
           </div>
         </div>
+        </div>
       </section>
 
       {/* Menu */}
