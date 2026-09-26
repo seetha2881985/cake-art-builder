@@ -7,6 +7,12 @@ import cinnamonRoll from "../assets/cinnamon-roll.jpg";
 import almondCroissant from "../assets/almond-croissant.jpg";
 import lemonCake from "../assets/lemon-cake.jpg";
 import cardamomBun from "../assets/cardamom-bun.jpg";
+import baguette from "../assets/baguette.jpg";
+import ryeLoaf from "../assets/rye-loaf.jpg";
+import appleDanish from "../assets/apple-danish.jpg";
+import chocolateEclair from "../assets/chocolate-eclair.jpg";
+import blueberryMuffin from "../assets/blueberry-muffin.jpg";
+import focaccia from "../assets/focaccia.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -33,37 +39,73 @@ export const Route = createFileRoute("/")({
 const menu = [
   {
     name: "Country Sourdough",
-    price: "$9",
+    tag: "Breads",
     description: "48-hour ferment, blistered crust, open crumb. Baked at 5am.",
     image: sourdough,
   },
   {
+    name: "Sourdough Baguette",
+    tag: "Breads",
+    description: "Crackling shell, tender interior. Shaped by hand every morning.",
+    image: baguette,
+  },
+  {
+    name: "Dark Rye Loaf",
+    tag: "Breads",
+    description: "Deep, malty crumb under a cracked rye crust. A favorite with soup.",
+    image: ryeLoaf,
+  },
+  {
+    name: "Rosemary Focaccia",
+    tag: "Breads",
+    description: "Olive-oil dimpled, torn rosemary, flaky sea salt. Sold by the slice.",
+    image: focaccia,
+  },
+  {
     name: "Butter Croissant",
-    price: "$5",
+    tag: "Pastries",
     description: "Twenty-seven layers of cultured butter, shattering and soft.",
     image: croissant,
   },
   {
     name: "Almond Croissant",
-    price: "$6",
+    tag: "Pastries",
     description: "Filled with frangipane, crowned with toasted almonds and sugar.",
     image: almondCroissant,
   },
   {
+    name: "Chocolate Eclair",
+    tag: "Pastries",
+    description: "Choux piped with chocolate crème, finished with a dark ganache.",
+    image: chocolateEclair,
+  },
+  {
+    name: "Apple Danish",
+    tag: "Pastries",
+    description: "Flaky squares layered with spiced apples, baked until lacquered.",
+    image: appleDanish,
+  },
+  {
     name: "Cinnamon Roll",
-    price: "$6",
+    tag: "Sweet",
     description: "Soft brioche, cinnamon sugar, a thin cream-cheese glaze.",
     image: cinnamonRoll,
   },
   {
     name: "Cardamom Bun",
-    price: "$5",
+    tag: "Sweet",
     description: "Knotted by hand with ground cardamom and pearl sugar.",
     image: cardamomBun,
   },
   {
+    name: "Blueberry Muffin",
+    tag: "Sweet",
+    description: "Dome-topped with a sugared crust, bursting with berries.",
+    image: blueberryMuffin,
+  },
+  {
     name: "Lemon Drizzle Cake",
-    price: "$6",
+    tag: "Sweet",
     description: "Bright citrus glaze, tender crumb, best with a coffee.",
     image: lemonCake,
   },
@@ -109,8 +151,41 @@ function Index() {
         </div>
       </header>
 
+      {/* Marquee ribbon */}
+      <div className="overflow-hidden border-b border-primary/30 bg-primary py-2.5">
+        <div className="animate-marquee flex w-max">
+          {[0, 1].map((dup) => (
+            <div key={dup} aria-hidden={dup === 1} className="flex items-center">
+              {[
+                "Fresh from the oven every morning",
+                "No preservatives, ever",
+                "Made by hand, daily",
+                "Stone deck oven since 2014",
+              ].map((text) => (
+                <span
+                  key={`${dup}-${text}`}
+                  className="flex items-center gap-8 pr-8 text-xs font-bold uppercase tracking-[0.25em] whitespace-nowrap text-primary-foreground"
+                >
+                  {text}
+                  <span className="text-primary-foreground/60">✦</span>
+                </span>
+              ))}
+            </div>
+          ))}
+        </div>
+      </div>
+
       {/* Hero */}
-      <section className="mx-auto grid max-w-6xl items-center gap-12 px-6 pt-14 pb-20 lg:grid-cols-2 lg:pt-20">
+      <section className="relative overflow-hidden">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -top-40 -right-40 size-[30rem] rounded-full bg-accent/50 blur-3xl"
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -bottom-32 -left-24 size-96 rounded-full bg-secondary/80 blur-3xl"
+        />
+        <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-6 pt-14 pb-20 lg:grid-cols-2 lg:pt-20">
         <div>
           <p className="animate-fade-up text-xs font-bold uppercase tracking-[0.3em] text-primary">
             Neighborhood bakery · Est. 2014
@@ -138,6 +213,12 @@ function Index() {
               See the menu
             </a>
           </div>
+          <p className="animate-fade-up mt-7 flex items-center gap-2 text-sm text-muted-foreground [animation-delay:480ms]">
+            <span className="text-primary" aria-hidden>
+              ✦ ✦ ✦ ✦ ✦
+            </span>
+            Loved by the neighborhood since 2014
+          </p>
         </div>
         <div className="animate-fade-up relative [animation-delay:240ms]">
           <img
@@ -147,12 +228,21 @@ function Index() {
             height={1280}
             className="w-full rounded-3xl object-cover shadow-xl ring-1 ring-border"
           />
+          <img
+            src={croissant}
+            alt="Golden butter croissants stacked on a bakery tray"
+            loading="lazy"
+            width={512}
+            height={384}
+            className="absolute -top-8 -right-6 hidden w-44 rotate-6 rounded-2xl object-cover shadow-2xl ring-4 ring-background lg:block"
+          />
           <div className="absolute -bottom-5 -left-4 rounded-2xl bg-card px-5 py-4 shadow-lg ring-1 ring-border md:-left-6">
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground">
               Out of the oven
             </p>
             <p className="mt-1 font-display text-xl font-medium">6:00 am sharp</p>
           </div>
+        </div>
         </div>
       </section>
 
@@ -190,10 +280,10 @@ function Index() {
                   />
                 </div>
                 <div className="p-3">
-                  <div className="flex items-baseline justify-between gap-3">
-                    <h3 className="font-display text-2xl font-medium">{item.name}</h3>
-                    <span className="font-display text-xl text-primary">{item.price}</span>
-                  </div>
+                  <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-primary">
+                    {item.tag}
+                  </p>
+                  <h3 className="mt-1 font-display text-2xl font-medium">{item.name}</h3>
                   <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
                     {item.description}
                   </p>
