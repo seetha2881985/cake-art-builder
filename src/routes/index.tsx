@@ -7,6 +7,12 @@ import cinnamonRoll from "../assets/cinnamon-roll.jpg";
 import almondCroissant from "../assets/almond-croissant.jpg";
 import lemonCake from "../assets/lemon-cake.jpg";
 import cardamomBun from "../assets/cardamom-bun.jpg";
+import baguette from "../assets/baguette.jpg";
+import ryeLoaf from "../assets/rye-loaf.jpg";
+import appleDanish from "../assets/apple-danish.jpg";
+import chocolateEclair from "../assets/chocolate-eclair.jpg";
+import blueberryMuffin from "../assets/blueberry-muffin.jpg";
+import focaccia from "../assets/focaccia.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
