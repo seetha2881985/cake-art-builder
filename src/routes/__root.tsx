@@ -84,7 +84,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "Hearth & Crumb – Artisan Bakery" },
       {
         name: "description",
-        
+        content:
           "A neighborhood bakery baking sourdough, croissants and pastries fresh every morning.",
       },
     ],
