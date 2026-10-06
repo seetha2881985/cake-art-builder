@@ -34,11 +34,11 @@ function NotFoundComponent() {
   );
 }
 
-function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
+function ErrorComponent({ error, reset }: { error: unknown; reset: () => void }) {
   console.error(error);
   const router = useRouter();
   useEffect(() => {
-    reportLovableError(error, { boundary: "tanstack_root_error_component" });
+    reportLovableError(error as Error, { boundary: "tanstack_root_error_component" });
   }, [error]);
 
   return (
@@ -77,14 +77,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       {
         name: "google-site-verification",
-        content: "76z2crKHXof_z5o",
+        content: "FFy-vzWHQSeQHcuiG3GNKdcg266aN-aIJeJK2YMPS4o",
       },
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Hearth & Crumb – Artisan Bakery" },
       {
         name: "description",
-        
+        content:
           "A neighborhood bakery baking sourdough, croissants and pastries fresh every morning.",
       },
     ],

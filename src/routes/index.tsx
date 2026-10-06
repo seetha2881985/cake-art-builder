@@ -168,7 +168,7 @@ function Index() {
                   className="flex items-center gap-8 pr-8 text-xs font-bold uppercase tracking-[0.25em] whitespace-nowrap text-primary-foreground"
                 >
                   {text}
-                  <span className="text-primary-foreground/60">✦</span>
+                  <span aria-hidden className="h-3 w-px bg-primary-foreground/60" />
                 </span>
               ))}
             </div>
